@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>蔬菜小能手</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="Build/UnityLoader.js"></script>
+
+	<style>
+
+	.container img {
+	  margin: auto;
+	}
+	
+	.button {
+	  background-color: #4CAF50;
+	  border: none;
+	  color: white;
+	  padding: 15px 32px;
+	  text-align: center;
+	  text-decoration: none;
+	  display: inline-block;
+	  font-size: 32px;
+	  margin: 4px 300px;
+	  cursor: pointer;
+	  border-radius: 5px;
+	}
+	</style>
+
+  </head>
+  <body>
+    <div class="webgl-content">
+      <div id="unityContainer" style="width: 800px; height: 600px">	  
+	  <img id ="HomeSplash" src="TemplateData/VegetableDance.gif" width="800" height="600">
+	  <button id ="StartGameButton" class="button" style="z-index:10000" onclick="runUnityLoader(); ">开始游戏</button>
+	  </div>
+	  
+      <div class="footer">
+        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
+        <div class="title">蔬菜小能手</div>
+      </div>
+    </div>
+  </body>
+  
+  <script>
+    var unityInstance
+    function runUnityLoader() 
+	{
+		var homeSplash = document.getElementById("HomeSplash");
+		homeSplash.style.display = "none";
+		var startGameBtn = document.getElementById("StartGameButton");
+		startGameBtn.style.display = "none";
+		unityInstance = UnityLoader.instantiate("unityContainer", "Build/WebBuild.json", {onProgress: UnityProgress});
+    }
+  </script>
+	
+</html>
